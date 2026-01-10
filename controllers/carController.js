@@ -1,6 +1,6 @@
-const Car = require("../models/fruit.js")
-const express = require("express")
-const router = express.Router()
+const Car = require("../models/car.js");
+const express = require("express");
+const router = express.Router();
 
 // I.N.D.U.C.E.S
 
