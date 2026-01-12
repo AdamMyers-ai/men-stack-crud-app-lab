@@ -24,6 +24,16 @@ router.delete("/cars/:carId", async (req, res) => {
 // Update
 
 // Create
+router.post("/cars", async (req, res) => {
+  if (req.body.isRoadworthy === "on") {
+    req.body.isRoadworthy = true;
+  } else {
+    req.body.isRoadworthy = false;
+  }
+
+  await Car.create(req.body);
+  res.redirect("/cars/new");
+});
 
 // Edit
 
