@@ -20,6 +20,11 @@ app.get("/", async (req, res) => {
   res.render("index.ejs");
 });
 
+// test route
+app.get("/test", (req, res) => {
+  res.send("Server is running");
+});
+
 app.use(carController);
 
 // route to catch undefined urls

@@ -22,6 +22,17 @@ router.delete("/cars/:carId", async (req, res) => {
 });
 
 // Update
+router.put("/cars/:carId", async (req, res) => {
+  if (req.body.isRoadworthy === "on") {
+    req.body.isRoadworthy = true;
+  } else {
+    req.body.isRoadworthy = false;
+  }
+
+  await Car.findByIdAndUpdate(req.params.carId, req.body);
+
+  res.redirect(`/cars/${req.params.carId}`);
+});
 
 // Create
 router.post("/cars", async (req, res) => {
@@ -36,7 +47,15 @@ router.post("/cars", async (req, res) => {
 });
 
 // Edit
+router.get("/cars/:carId/edit", async (req, res) => {
+  const car = await Car.findById({ _id: req.params.carId });
+  res.render("cars/edit.ejs", { car });
+});
 
 // Show
+router.get("/cars/:carId", async (req, res) => {
+  const car = await Car.findOne({ _id: req.params.carId });
+  res.render("cars/show.ejs", { car });
+});
 
 module.exports = router;

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/navbar.ejs') %>
+
+    <h1>Edit the <%= car.name %></h1>
+    <form action="/cars/<%= car._id %>?_method=PUT" method="post">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" value="<%= car.name %>" />
+
+      <label for="type">Type:</label>
+      <input type="text" name="type" id="type" value="<%= car.type %>" />
+
+      <label for="color">Color:</label>
+      <input type="text" name="color" id="color" value="<%= car.color %>" />
+
+      <label for="isRoadworthy">Ready to Drive?</label>
+      <input type="checkbox" name="isRoadworthy" id="isRoadworthy" <% if (car.isRoadworthy) { %> checked <% } %> />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

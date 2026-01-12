@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/head.ejs') %>
+  <body>
+    <%- include('../partials/navbar.ejs') %>
+
+    <h1><%= car.name %></h1>
+
+    <% if(car.isRoadworthy){ %>
+    <p>This Car is Ready For the Road!</p>
+    <% } else { %>
+    <p>This Car Should Not Be Driven Right Now.</p>
+    <% } %>
+
+    <a href="/cars"><button>Go Back to All Cars</button></a>
+
+    <form action="/cars/<%= car._id %>?_method=DELETE" method="post">
+      <button type="submit">Delete This Car</button>
+    </form>
+
+    <a href="/cars/<%= car._id %>/edit">
+      <button>Edit the <%= car.name %></button>
+    </a>
+  </body>
+</html>
