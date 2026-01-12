@@ -11,6 +11,9 @@ router.get("/cars", async (req, res) => {
 });
 
 // New
+router.get("/cars/new", (req, res) => {
+  res.render("cars/new.ejs");
+});
 
 // Delete
 
