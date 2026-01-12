@@ -16,6 +16,10 @@ router.get("/cars/new", (req, res) => {
 });
 
 // Delete
+router.delete("/cars/:carId", async (req, res) => {
+  await Car.findByIdAndDelete(req.params.carId);
+  res.redirect("/cars");
+});
 
 // Update
 
