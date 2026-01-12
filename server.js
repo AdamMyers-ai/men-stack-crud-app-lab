@@ -24,9 +24,9 @@ app.use(carController);
 
 // route to catch undefined urls
 app.get("/*splat", (req, res) => {
-  res.render.apply("404.ejs", { url: req.url });
+  res.render("404.ejs", { url: req.url });
 });
 
 app.listen(3000, () => {
-  console.log("Listening to the open road on port 3000");
+  console.log("Yearning for the open road on port 3000");
 });
